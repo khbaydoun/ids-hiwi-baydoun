@@ -27,7 +27,7 @@ public class EmployeeController {
 	@RequestMapping(value="/ListWithName", method =RequestMethod.GET)
 	public ModelAndView findAllEmployeeWithName(ModelAndView model,HttpServletResponse response) {
 		List<Employee> employeeList = employeeService.getEmployee();
-		model.setViewName("Home");
+		model.setViewName("SearchByID");
 		model.addObject("employeeList",employeeList );
 		response.setStatus(HttpServletResponse.SC_OK);
 		return model;
@@ -36,7 +36,7 @@ public class EmployeeController {
 	@RequestMapping(value="/ById/{id}", method =RequestMethod.GET)
 	public ModelAndView findAllEmployeeWithName(@PathVariable int id ,ModelAndView model,HttpServletResponse response) {
 		Employee employee = employeeService.getEmployeeByID(id);
-		model.setViewName("SearchByID");
+		model.setViewName("home");
 		model.addObject("employee",employee );
 		response.setStatus(HttpServletResponse.SC_OK);
 		return model;
