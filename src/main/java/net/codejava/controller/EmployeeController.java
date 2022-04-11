@@ -42,11 +42,6 @@ public class EmployeeController {
 		return model;
 		
 	}
-	@RequestMapping(value = "/greeting", method = RequestMethod.GET)
-    public String get(ModelMap model) {
-        model.addAttribute("message", "Hello, World!");
-        return "greeting";
-    }
 	/*@RequestMapping(value="/")
 	public ModelAndView test(HttpServletResponse response) throws IOException{
 		return new ModelAndView("home");
