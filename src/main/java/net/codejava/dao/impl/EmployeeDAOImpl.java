@@ -110,7 +110,7 @@ public class EmployeeDAOImpl implements EmployeeDAO {
 		String sql = "SELECT * FROM employeedata WHERE id=:employeeId";
 		parameters.addValue("employeeId", employeeId);
 		return namedParameterJdbcTemplate.queryForObject(sql, parameters, Employee.class);
-		//resultData = namedParameterJdbcTemplate.query(sql, parameters, new TableRowMapper());
+
 		
 		
 	}
@@ -128,43 +128,14 @@ public class EmployeeDAOImpl implements EmployeeDAO {
 	    	  		"	send_me_notifications , send_text_messages , enable_tagging , created_at ,  updated_at , live_lng, live_lat, live_location, credit_balance, my_cash) values ( :id,:name,:email,:password ,:about ,\r\n" + 
 	    	  		"	:token , :country , :location , :lng , :lat ,:dob, :gender , :userType ,  :userStatus , :profilePicture , :coverPicture ,:enablefollowme , \r\n" + 
 	    	  		"	:sendmenotifications , :sendTextmessages , :enabletagging , :createdAt ,  :updatedAt , :livelng, :livelat, :liveLocation, :creditBalance, :myCash)";
-	    	  Map<String, Object> paramMap = new HashMap<String, Object>();
+	    	  
 	    	     MapSqlParameterSource parameters = new MapSqlParameterSource();
 	    	  //Retrieving the array
 	         for(Object entry : jsonObjectArray) {
 	            JSONObject record = (JSONObject) entry;
 	            
 	            
-	            /*paramMap.putIfAbsent( "id",record.get("id"));
-	            paramMap.putIfAbsent( "name" ,(String) record.get("name"));
-	            paramMap.putIfAbsent( "email" ,(String) record.get("email"));
-	            paramMap.putIfAbsent( "password" , (String) record.get("password"));
-	            paramMap.putIfAbsent( "about", (String) record.get("about"));
-	            paramMap.putIfAbsent( "token", (String) record.get("token"));
-	            paramMap.putIfAbsent( "country",(String) record.get("country"));
-	            paramMap.putIfAbsent( "location", (String) record.get("location"));
-	            paramMap.putIfAbsent( "lng", record.get("lng"));
-	            paramMap.putIfAbsent( "lat",record.get("lat"));
-	            paramMap.putIfAbsent( "dob ",(String) record.get("dob"));
-	            paramMap.putIfAbsent( "gender", record.get("gender"));
-	            paramMap.putIfAbsent( "userType",record.get("userType"));
-	            paramMap.putIfAbsent( "userStatus",record.get("userStatus"));
-	            paramMap.putIfAbsent( "coverPicture",(String) record.get("coverPicture"));
-	            paramMap.putIfAbsent( "enablefollowme",(boolean) record.get("enablefollowme"));
-	            paramMap.putIfAbsent( "sendmenotifications", (boolean) record.get("sendmenotifications"));
-	            paramMap.putIfAbsent( "sendTextmessages",(boolean) record.get("sendTextmessages"));
-	            paramMap.putIfAbsent( "enabletagging",(boolean) record.get("enabletagging"));
-	            paramMap.putIfAbsent( "createdAt",(String) record.get("createdAt"));
-	            paramMap.putIfAbsent( "updatedAt", (String) record.get("updatedAt"));
-	            paramMap.putIfAbsent( "livelng ",record.get("livelng"));
-	            paramMap.putIfAbsent( "livelat",record.get("livelat"));
-	            paramMap.putIfAbsent( "liveLocation ",(String) record.get("liveLocation"));
-	           // paramMap.put( "creditBalance",Integer.parseInt((String) record.get("creditBalance")));
-	            paramMap.putIfAbsent( "creditBalance",record.get("creditBalance"));
-	            paramMap.putIfAbsent( "myCash", record.get("creditBalance"));*/
-	            
-	            
-	       
+	            	       
 	            parameters.addValue( "id",record.get("id"));
 	            parameters.addValue( "name" ,(String) record.get("name"));
 	            parameters.addValue( "email" ,(String) record.get("email"));
@@ -173,7 +144,7 @@ public class EmployeeDAOImpl implements EmployeeDAO {
 	            parameters.addValue( "token", (String) record.get("token"));
 	            parameters.addValue( "country",(String) record.get("country"));
 	            parameters.addValue( "location", (String) record.get("location"));
-	            parameters.addValue( "lng", record.get("lng")); paramMap.putIfAbsent( "id",record.get("id"));
+	            parameters.addValue( "lng", record.get("lng")); 
 	            parameters.addValue( "name" ,(String) record.get("name"));
 	            parameters.addValue( "email" ,(String) record.get("email"));
 	            parameters.addValue( "password" , (String) record.get("password"));
